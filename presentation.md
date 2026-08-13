@@ -226,11 +226,6 @@ Animation TODO: Use duplicate slides to show: enter → choose side → side con
 
 ## How a gadget remembers an orientation
 
-<div class="center">
-
-put wicked sick picture here
-
-</div>
 
 During the initial traversal, one side is consumed.
 
@@ -245,11 +240,11 @@ challenging it is losing
 <strong>unused side</strong><br><br>
 one successful challenge excursion
 </div>
-</div>
 
-<div class="todo">
-TODO visual: simple side-selection gadget with “used” side greyed out and “unused” side highlighted.
-</div>
+
+---
+
+![width:1000px](./edge-gadget.png)
 
 ---
 
