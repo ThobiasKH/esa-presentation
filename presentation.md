@@ -1,14 +1,16 @@
 ---
 marp: true
-theme: default
+theme: dark
 paginate: true
 math: katex
 size: 16:9
 style: |
   section {
-    font-family: "Aptos", "Helvetica Neue", Arial, sans-serif;
+    font-family: "Aptos", "Inter", sans-serif;
     font-size: 30px;
     padding: 56px 72px;
+    background: #0d1117;
+    color: #dce3ea;
   }
   h1 {
     font-size: 52px;
@@ -23,6 +25,23 @@ style: |
   h3 {
     font-size: 32px;
   }
+  h1, h2 {
+  color: #ffffff;
+  }
+
+  h2 {
+    border-bottom: 2px solid #30363d;
+    padding-bottom: 0.15em;
+  }
+
+  strong {
+    color: #ffffff;
+  }
+
+  a {
+    color: #93c5fd;
+  }
+
   .small { font-size: 23px; }
   .tiny { font-size: 19px; }
   .muted { color: #666; }
@@ -54,7 +73,77 @@ style: |
   }
   .center { text-align: center; }
   .bigmath { font-size: 44px; text-align: center; }
-  footer { font-size: 18px; color: #666; }
+  .theorem {
+    border-left: 6px solid #58a6ff;
+    background: #161b22;
+    padding: 0.7em 1em;
+    margin: 0.7em 0;
+    border-radius: 8px;
+  }
+
+  .theorem h3 {
+    margin-top: 0;
+    color: #58a6ff;
+  }
+
+  .theorem strong {
+    color: #ffffff;
+  }
+  blockquote {
+  border-left: 5px solid #58a6ff;
+  color: #c9d1d9;
+  }
+
+  code {
+    background: #161b22;
+  }
+
+  footer {
+    color: #8b949e;
+  }
+
+  img[alt~="center"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+    .type-table {
+    display: flex;
+    justify-content: center;
+    margin: 22px 0;
+  }
+
+  .type-table table {
+    width: 92%;
+    margin: 0;
+    border-collapse: collapse;
+    font-size: 25px;
+    background: transparent !important;
+  }
+
+  .type-table th,
+  .type-table td {
+    padding: 13px 16px;
+    text-align: center !important;
+    border: 1px solid #30363d !important;
+    color: #dce3ea !important;
+  }
+
+  .type-table th {
+    background: #21262d !important;
+    color: #ffffff !important;
+  }
+
+  .type-table td {
+    background: #161b22 !important;
+  }
+
+  .type-note {
+    color: #8b949e;
+    font-size: 19px;
+    text-align: center;
+  }
 
   
 ---
@@ -67,7 +156,7 @@ Visual TODO: Optional very faint background silhouette of a narrow graph/path de
 
 # Edge Geography is XNLP-hard for Pathwidth and in XP for Tree-Partition Width
 
-**Thobias Kvalvik Høivik** · **Erlend Raa Vågset**  
+**Thobias Kvalvik Høivik (presenting)** · **Erlend Raa Vågset**  
 Western Norway University of Applied Sciences
 
 ESA 2026 · L’Aquila
@@ -83,6 +172,8 @@ Animation TODO: Prefer 3–4 duplicated slides in Marp rather than complex anima
 
 ## Edge Geography
 
+One of the most famous $\text{PSPACE}$-complete problems.
+
 A token starts at a vertex $s$.
 
 Players alternate:
@@ -97,71 +188,52 @@ The first player unable to move loses.
 
 ---
 
-![width:1100px](./geography.svg)
+![invert hue-rotate:90deg width:1100px](./geography.svg)
 
 ---
 
-<!--
-Timing: ~1:00
-Goal: Set up why graph width seems relevant, then reveal the obstruction.
-Visual TODO: Narrow path decomposition separating “past” and “future”. Then overlay several deleted edges incident to the same separator vertex.
--->
-
-## Why should width help?
-
-Small separators often suggest small dynamic-programming states.
-
-$$
-\text{Past} \quad |\quad \text{separator} \quad |\quad 
-\text{future}
-$$
-
-But Edge Geography has a catch:
-
-<div class="box center">
-The game deletes <span class="danger">edges</span>, not vertices.
-</div>
-
-A separator vertex may be revisited many times while different incident edges disappear.
+![width:1200px](./Geography.gif)
 
 ---
 
-![width:600px](./crossings.svg)
+
+## Parameterizing the problem
+
+<div class="theorem">
+
+### Theorem (Bodlaender, modern language)
+
+(Undirected) Edge Geography is solvable in time $f(k,d) \cdot O(n)$ where 
+$k$ is the treewidth of the graph and $d$ is the maximum 
+degree of any vertex in the graph.   
+
+</div>
+
+Exponential time becomes "linear time" when two parameters are controlled!
+What if we allow $d$ to be unbounded? 
 
 ---
 
-<!--
-Timing: ~1:00
-Goal: Give the whole paper in one slide. This is the audience’s map.
-Visual TODO: Make this a clean landscape diagram. Use arrows or three horizontal bands.
--->
+![center invert width:600px](./crossings.svg)
 
-## What width alone can and cannot do
+---
 
-<div class="three-col">
+## Our first result
 
-<div class="box center">
-<strong>pathwidth</strong><br><br>
-<span class="danger">XNLP-hard</span>
-</div>
+<div class="theorem">
 
-<div class="box center">
-<strong>treewidth + degree</strong><br><br>
-<span class="accent">FPT</span>
-</div>
+### Theorem 
 
-<div class="box center">
-<strong>tree-partition width</strong><br><br>
-<span class="accent">XP</span>
-</div>
+Directed Edge Geography is XNLP-hard parameterized by pathwidth.   
 
 </div>
 
-<br>
+XNLP "rules out" fixed-parameter tractability.  
+Bounded pathwidth $\Rightarrow$ bounded treewidth.
+Pathwidth, and thus treewidth, is not enough!
+This result transfers to Undirected Edge Geography in a simple way!
 
-<div class="center">
-Main question: <strong>which decompositions support a compact summary of residual play?</strong>
-</div>
+
 
 ---
 
@@ -173,14 +245,15 @@ Visual TODO: Recreate a simple weighted graph with red vertex budgets, inspired 
 
 ## Source problem: Chosen Maximum Outdegree
 
-Choose an orientation of every edge so that each vertex respects its budget.
+Does there exist an orientation of every edge so that each vertex respects its budget.
 
 
 $$
   \displaystyle \sum_{e\in\theta_\omega(v)} w(e) \leq t(v) \qquad \forall v
 $$
+FIX THIS IMAGE IT IS WRONG
 
-![width:800px](./orientation.svg)
+![center invert width:800px](./orientation.svg)
 
 <p class="small muted">Known XNLP-complete when parameterized by pathwidth.</p>
 
@@ -214,37 +287,22 @@ $$
 \text{Player 2 has one excursion too many}.
 $$
 
+---
+
+## Phase 1
+
+![center invert hue-rotate:125deg width:900px](./edge-gadget.png)
 
 ---
 
-<!--
-Timing: ~1:30
-Goal: Give just enough gadget behavior for the correctness proof to feel inevitable.
-Visual TODO: Abstract the edge gadget heavily. Do not paste full Figure 3. Use two symmetric corridors: x-side and y-side. Show used side / unused side.
-Animation TODO: Use duplicate slides to show: enter → choose side → side consumed → later challenge.
--->
+## Phase 2
 
-## How a gadget remembers an orientation
+![center invert hue-rotate:125deg width:900px](./black-box.png)
 
+--- 
+## The full reduction for a small source instance
 
-During the initial traversal, one side is consumed.
-
-Later, in the challenge phase:
-
-<div class="two-col">
-<div class="box center">
-<strong>used side</strong><br><br>
-challenging it is losing
-</div>
-<div class="box center">
-<strong>unused side</strong><br><br>
-one successful challenge excursion
-</div>
-
-
----
-
-![width:1000px](./edge-gadget.png)
+![center invert hue-rotate:125deg width:900px](./full-reduction.png)
 
 ---
 
@@ -301,9 +359,6 @@ $$
 $$
 
 
-<div class="todo">
-TODO visual: path-decomposition timeline. Show $x,y$ intervals, a green local gadget block, short-lived auxiliary vertices.
-</div>
 
 ---
 
@@ -329,6 +384,8 @@ Entering the wrong way is losing under optimal play.
 Directed hardness transfers to Undirected Edge Geography.
 </div>
 
+![center invert width:900px](./pseudoarc.png)
+
 ---
 
 <!--
@@ -337,7 +394,7 @@ Goal: Pivot from hardness to why tree partitions make an algorithm possible.
 Visual TODO: Use/recreate Figure 8: graph bags on left, tree of bags on right. Highlight parent-child ports.
 -->
 
-## Tree partitions give controlled interfaces
+## XP membership for width of treepartition
 
 A rooted tree partition groups vertices into bags.
 
@@ -346,72 +403,234 @@ Edges are either:
 - inside one bag, or
 - between adjacent bags of the tree.
 
-For width $k$, a parent-child cut has at most $k^2$ ports.
+For width $k$, a parent-child cut has at most $k^2$ ports (on simple graphs).
+
+<div class="theorem">
+
+  ### Theorem 
+
+  Undirected Edge Geography on simple graphs, given together with a
+  rooted tree partition of width $k$, is solvable in XP time  parameterized by $k$.
+
+</div>
+
+
+---
+
+![center invert hue-rotate:0deg width:1000px](tree-partition.png)
+
+--- 
+## A solved child conveys a boolean function
+
+<div class="two-col">
+
+<div>
+
+
+![center invert hue-rotate:0deg width:400px](small-child-parent-cut.png)
+
+</div>
+
+<div>
+
+### The child exports a response
+
+$$
+\Phi_a(\nu_b,\nu_c)=\nu_b\wedge\nu_c .
+$$
+
+<p class="small">
+
+$\nu_b$ and $\nu_c$ are the values of the two possible continuations in the parent.
+
+</p>
+
+<p class="small">
+
+The cut has $O(k^2)$ ports, so the truth table of $\Phi_a$ has size only $f(k)$.
+
+</p>
 
 <div class="box center">
-A child subtree can only interact with its parent through boundedly many ports.
+
+Returning through $p_b$ also exports the smaller residual type $\sigma_c$.
+
 </div>
 
-<div class="todo">
-TODO visual: parent bag with several child bags; highlight ports crossing one parent-child boundary.
+</div>
+</div>
+
+--- 
+
+## Bottom-up symbolic minimax
+
+<div class="bigmath">
+
+leaf $\longrightarrow$ interface type $\longrightarrow$ parent $\longrightarrow\cdots\longrightarrow$ root
+
+</div>
+
+<div class="three-col">
+
+<div>
+
+### 1 · Leaves
+
+For every entry port and local residual state, brute-force minimax **inside the bag**.
+
+Treat possible returns to the parent as variables $\nu_p$.
+
+</div>
+
+<div>
+
+### 2 · Internal bags
+
+Replace each solved child by its interface type $\sigma$.
+
+Collect equal types into counters $m_\sigma$ and run local minimax.
+
+</div>
+
+<div>
+
+### 3 · Root
+
+There is no unknown continuation above the root.
+
+Evaluate the final compressed state to obtain the winner.
+
+</div>
+</div>
+
+<div class="theorem center">
+Entering a solved child is a <strong>table lookup</strong>; returning is a <strong>counter update</strong>.
 </div>
 
 ---
 
-<!--
-Timing: ~1:15
-Goal: Communicate the DP without drowning in notation. This is the positive-side conceptual slide.
-Visual TODO: Parent bag with child subtrees collapsed into typed black boxes. Show A, A, A, B, C becoming multiplicity vector 3A + B + C.
--->
+## Every move spends something forever
 
-## Compress child subtrees by type
+Once the children have been replaced by their types, resources can only decrease.
 
-Think of each child subtree as a black box.
+<div class="three-col center">
 
-An interface type records:
+<div>
 
-- where play can enter,
-- where it may return,
-- what residual child remains,
-- whose turn it is after returning.
+### Inside the bag
 
-For fixed $k$, there are only finitely many types.
+One unused edge disappears.
 
-$$
-A,A,A,B,C \quad\leadsto\quad 3A+B+C
-$$
-<div class="todo">
-TODO visual: several child subtrees collapsed to labelled boxes, then compressed into multiplicities.
+</div>
+
+<div>
+
+### Child returns
+
+Its entry and return ports are gone.
+
+</div>
+
+<div>
+
+### Play exits upward
+
+One parent port disappears.
+
+</div>
+</div>
+
+<div class="bigmath">
+
+resources decrease $\Longrightarrow$ no cycles $\Longrightarrow$ reverse minimax
+
+</div>
+
+<div class="theorem center">
+
+<strong>Implementation check.</strong>
+The XP solver does indeed agree with separate brute-force minimax
+on randomly generated instances.
+
 </div>
 
 ---
 
-<!--
-Timing: ~0:50
-Goal: State the algorithmic mechanism and result, but only at talk level.
-Visual TODO: Bottom-up arrows on tree partition; local acyclic games solved by reverse DP.
--->
+## Child counters comprise the worst factor
 
-## Bottom-up dynamic programming
+<div class="two-col">
 
-At each bag, a compressed residual configuration is roughly:
+<div>
 
+### The $n$-dependent part
+
+For fixed $k$, there are $t_k$ possible child types.
+
+Each counter lies in $\{0,\ldots,n\}$, so
 
 $$
-  \Gamma=(U,F,m)
+m\in\{0,\ldots,n\}^{t_k}
+\quad\Longrightarrow\quad
+\#m\leq(n+1)^{t_k}=n^{O(t_k)}.
 $$
 
-<div class="three-col small">
-<div class="box center">unused<br>ports</div>
-<div class="box center">unused<br>internal edges</div>
-<div class="box center">multiplicities<br>of child types</div>
 </div>
 
-Local games are acyclic because every move consumes an edge or reduces a residual child type.
+<div>
+
+### The other factors
+
+Unused ports and internal edges contribute
 
 $$
-\text{This gives an} \ n^{f(k)}\text{-time algorithm: XP}.
+2^{k^2}\cdot2^{\binom{k}{2}}
+=2^{O(k^2)}.
 $$
+
+All other boundary data depends only on $k$; collect it into $g(k)$.
+
+</div>
+</div>
+
+$$
+\underbrace{n}_{\text{bags}}
+\cdot
+\underbrace{g(k)}_{\text{includes }2^{O(k^2)}}
+\cdot
+\underbrace{n^{O(t_k)}}_{\text{counter states}}
+=
+n^{f(k)}.
+$$
+
+
+---
+
+## Laughably bad in practice
+
+Let $T_r$ be the number of ambient types on an interface with $r$ ports.
+
+<div class="type-table">
+
+| ports $r$ | $0$ | $1$ | $2$ | $3$ | $4$ |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| ambient types $T_r$ | $1$ | $2$ | $676$ | $\approx 2^{768}$ | $\geq 2^{2^{4058}}$ |
+
+</div>
+
+<div class="type-note">
+
+Illustrative ambient count obtained by unwinding Definition 35.  
+The number of realizable types may be vastly smaller.
+
+</div>
+
+<div class="theorem center">
+
+A width-$k$ cut may have $k^2$ ports.<br>
+The crude bound is a tower of exponentials of height $O(k^2)$.
+
+</div>
+
 
 ---
 
@@ -446,72 +665,4 @@ bounded interfaces<br><br>
 <div class="box center">
 Open: Is Edge Geography in XP parameterized by pathwidth alone?
 </div>
-
----
-
-<!--
-Timing: reserve / optional slide
-Goal: Use only if there is extra time or for questions. This can also be hidden by moving it after a backup divider.
-Visual TODO: A small table of results and open problems.
--->
-
-## Backup: result table
-
-| Parameter | Directed | Undirected |
-|---|---:|---:|
-| pathwidth | XNLP-hard | XNLP-hard |
-| treewidth + max degree | FPT | follows via known results / transfer context |
-| tree-partition width | XP | XP |
-
-<div class="todo">
-TODO: verify exact phrasing for the undirected/treewidth+degree cell before final deck. This is a backup slide, not part of the core talk.
-</div>
-
----
-
-<!--
-Timing: backup / questions
-Goal: Keep details available for technical questions about the gadget.
-Visual TODO: Include simplified version of the actual edge gadget, perhaps cropped/redrawn from Figure 3.
--->
-
-## Backup: edge gadget behavior
-
-During initial traversal:
-
-- Player 1 chooses a side.
-- Player 2's replies are forced.
-- play exits at the return vertex.
-
-During challenge:
-
-- challenging the used side is losing,
-- challenging the unused side consumes one challenge edge and one return path.
-
-<div class="todo">
-TODO visual: cleaned-up Figure 3 or a custom simplified gadget diagram.
-</div>
-
----
-
-<!--
-Timing: backup / questions
-Goal: Have the pathwidth-preservation detail ready if asked.
-Visual TODO: Full cleaned-up Figure 6 with labels: anchors, local gadget block, local return paths.
--->
-
-## Backup: pathwidth bookkeeping
-
-The constructed decomposition follows the source path decomposition.
-
-For a bag $B_i$:
-
-- keep challenge anchors for vertices currently in $B_i$,
-- realize edge gadgets in local contiguous blocks,
-- introduce auxiliary vertices only briefly,
-- realize return paths just before forgetting their vertex.
-
-
-Only $O(k)$ long-lived vertices are needed.
-
 
