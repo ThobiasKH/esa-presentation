@@ -247,7 +247,6 @@ Does there exist an orientation of every edge so that each vertex respects its b
 $$
   \displaystyle \sum_{e\in\theta_\omega(v)} w(e) \leq t(v) \qquad \forall v
 $$
-FIX THIS IMAGE IT IS WRONG
 
 ![center invert width:800px](./orientation.svg)
 
