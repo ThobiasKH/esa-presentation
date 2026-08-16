@@ -192,10 +192,6 @@ The first player unable to move loses.
 
 ---
 
-![width:1200px](./Geography.gif)
-
----
-
 
 ## Parameterizing the problem
 
@@ -384,7 +380,7 @@ Entering the wrong way is losing under optimal play.
 Directed hardness transfers to Undirected Edge Geography.
 </div>
 
-![center invert width:900px](./pseudoarc.png)
+![center invert width:900px](./pseudoarc.svg)
 
 ---
 
@@ -418,47 +414,6 @@ For width $k$, a parent-child cut has at most $k^2$ ports (on simple graphs).
 ---
 
 ![center invert hue-rotate:0deg width:1000px](tree-partition.png)
-
---- 
-## A solved child conveys a boolean function
-
-<div class="two-col">
-
-<div>
-
-
-![center invert hue-rotate:0deg width:400px](small-child-parent-cut.png)
-
-</div>
-
-<div>
-
-### The child exports a response
-
-$$
-\Phi_a(\nu_b,\nu_c)=\nu_b\wedge\nu_c .
-$$
-
-<p class="small">
-
-$\nu_b$ and $\nu_c$ are the values of the two possible continuations in the parent.
-
-</p>
-
-<p class="small">
-
-The cut has $O(k^2)$ ports, so the truth table of $\Phi_a$ has size only $f(k)$.
-
-</p>
-
-<div class="box center">
-
-Returning through $p_b$ also exports the smaller residual type $\sigma_c$.
-
-</div>
-
-</div>
-</div>
 
 --- 
 
@@ -509,49 +464,44 @@ Entering a solved child is a <strong>table lookup</strong>; returning is a <stro
 
 ---
 
-## Every move spends something forever
+## A solved child conveys a boolean function
 
-Once the children have been replaced by their types, resources can only decrease.
-
-<div class="three-col center">
+<div class="two-col">
 
 <div>
 
-### Inside the bag
 
-One unused edge disappears.
+![center invert hue-rotate:0deg width:400px](small-child-parent-cut.png)
 
 </div>
 
 <div>
 
-### Child returns
+### The child exports a response
 
-Its entry and return ports are gone.
+$$
+\Phi_a(\nu_b,\nu_c)=\nu_b\wedge\nu_c .
+$$
+
+<p class="small">
+
+$\nu_b$ and $\nu_c$ are the values of the two possible continuations in the parent.
+
+</p>
+
+<p class="small">
+
+The cut has $O(k^2)$ ports, so the truth table of $\Phi_a$ has size only $f(k)$.
+
+</p>
+
+<div class="box center">
+
+Returning through $p_b$ also exports the smaller residual type $\sigma_c$.
 
 </div>
 
-<div>
-
-### Play exits upward
-
-One parent port disappears.
-
 </div>
-</div>
-
-<div class="bigmath">
-
-resources decrease $\Longrightarrow$ no cycles $\Longrightarrow$ reverse minimax
-
-</div>
-
-<div class="theorem center">
-
-<strong>Implementation check.</strong>
-The XP solver does indeed agree with separate brute-force minimax
-on randomly generated instances.
-
 </div>
 
 ---
