@@ -286,18 +286,18 @@ $$
 
 ## Phase 1
 
-![center invert hue-rotate:125deg width:900px](./edge-gadget.png)
+![center invert hue-rotate:125deg width:900px](./edge-gadget.PNG)
 
 ---
 
 ## Phase 2
 
-![center invert hue-rotate:125deg width:900px](./black-box.png)
+![center invert hue-rotate:125deg width:900px](./black-box.PNG)
 
 --- 
 ## The full reduction for a small source instance
 
-![center invert hue-rotate:125deg width:900px](./full-reduction.png)
+![center invert hue-rotate:125deg width:900px](./full-reduction.PNG)
 
 ---
 
@@ -412,96 +412,23 @@ For width $k$, a parent-child cut has at most $k^2$ ports (on simple graphs).
 
 ---
 
-![center invert hue-rotate:0deg width:1000px](tree-partition.png)
+## Tree-partition
+
+![center invert hue-rotate:0deg width:1000px](./tree-partition.svg)
 
 --- 
 
-## Bottom-up symbolic minimax
+## A rough overview of the algorithm
 
-<div class="bigmath">
-
-leaf $\longrightarrow$ interface type $\longrightarrow$ parent $\longrightarrow\cdots\longrightarrow$ root
-
-</div>
-
-<div class="three-col">
-
-<div>
-
-### 1 · Leaves
-
-For every entry port and local residual state, brute-force minimax **inside the bag**.
-
-Treat possible returns to the parent as variables $\nu_p$.
-
-</div>
-
-<div>
-
-### 2 · Internal bags
-
-Replace each solved child by its interface type $\sigma$.
-
-Collect equal types into counters $m_\sigma$ and run local minimax.
-
-</div>
-
-<div>
-
-### 3 · Root
-
-There is no unknown continuation above the root.
-
-Evaluate the final compressed state to obtain the winner.
-
-</div>
-</div>
-
-<div class="theorem center">
-Entering a solved child is a <strong>table lookup</strong>; returning is a <strong>counter update</strong>.
-</div>
+![center invert hue-rotate:0deg width:800px](./xp-algorithm.svg)
 
 ---
 
 ## A solved child conveys a boolean function
 
-<div class="two-col">
-
-<div>
 
 
-![center invert hue-rotate:0deg width:400px](small-child-parent-cut.png)
-
-</div>
-
-<div>
-
-### The child exports a response
-
-$$
-\Phi_a(\nu_b,\nu_c)=\nu_b\wedge\nu_c .
-$$
-
-<p class="small">
-
-$\nu_b$ and $\nu_c$ are the values of the two possible continuations in the parent.
-
-</p>
-
-<p class="small">
-
-The cut has $O(k^2)$ ports, so the truth table of $\Phi_a$ has size only $f(k)$.
-
-</p>
-
-<div class="box center">
-
-Returning through $p_b$ also exports the smaller residual type $\sigma_c$.
-
-</div>
-
-</div>
-</div>
+![center invert hue-rotate:0deg width:800px](./interface.svg)
 
 ---
 
@@ -554,7 +481,7 @@ $$
 
 ---
 
-## Laughably bad in practice
+## Ridiculously bad in practice
 
 Let $T_r$ be the number of ambient types on an interface with $r$ ports.
 
@@ -596,7 +523,7 @@ Visual TODO: Return to the main landscape diagram, now with explanatory labels u
 <div class="box center">
 <h3>Pathwidth</h3>
 small separators<br><br>
-<span class="danger">but residual history is uncontrolled</span><br><br>
+<span class="danger">uncontrolled residual history</span><br><br>
 <strong>XNLP-hard</strong>
 </div>
 
@@ -612,6 +539,11 @@ bounded interfaces<br><br>
 <br>
 
 <div class="box center">
-Open: Is Edge Geography in XP parameterized by pathwidth alone?
+Is Edge Geography in XP parameterized by pathwidth alone? <br>
+Is Edge Geography XALP-hard when parameterized by treepartition width?
 </div>
 
+--- 
+## Thanks for listening! 
+
+Questions welcome!
