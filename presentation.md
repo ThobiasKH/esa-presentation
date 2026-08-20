@@ -172,7 +172,7 @@ Animation TODO: Prefer 3–4 duplicated slides in Marp rather than complex anima
 
 ## Edge Geography
 
-One of the most famous $\text{PSPACE}$-complete problems.
+A classical $\text{PSPACE}$-complete problem.
 
 A token starts at a vertex $s$.
 
@@ -199,7 +199,7 @@ The first player unable to move loses.
 
 ### Theorem (Bodlaender, modern language)
 
-(Undirected) Edge Geography is solvable in time $f(k,d) \cdot O(n)$ where 
+(Undirected) Edge Geography is solvable in time $f(k,d) \cdot n$ where 
 $k$ is the treewidth of the graph and $d$ is the maximum 
 degree of any vertex in the graph.   
 
@@ -224,9 +224,13 @@ Directed Edge Geography is XNLP-hard parameterized by pathwidth.
 
 </div>
 
-XNLP "rules out" fixed-parameter tractability.  
+Existence of FPT algorithm would imply 
+$$
+  \text{FPT} = \text{W}[1] = \cdots = \text{W}[t] = \cdots
+  = \text{W}[\text{SAT}] = \text{W}[\text{P}] = \text{XNLP}.
+$$  
 Bounded pathwidth $\Rightarrow$ bounded treewidth.
-Pathwidth, and thus treewidth, is not enough!
+Pathwidth, and thus treewidth, is (given all reasonable assumptions) not enough!
 This result transfers to Undirected Edge Geography in a simple way!
 
 
@@ -248,9 +252,9 @@ $$
   \displaystyle \sum_{e\in\theta_\omega(v)} w(e) \leq t(v) \qquad \forall v
 $$
 
-![center invert width:800px](./orientation.svg)
+![center invert hue-rotate:120deg width:700px](./orientation-example.svg)
 
-<p class="small muted">Known XNLP-complete when parameterized by pathwidth.</p>
+Known to be XNLP-complete when parameterized by pathwidth.
 
 ---
 
@@ -286,18 +290,18 @@ $$
 
 ## Phase 1
 
-![center invert hue-rotate:125deg width:900px](./edge-gadget.PNG)
+![center invert hue-rotate:125deg width:900px](./updated-edge.svg)
 
 ---
 
 ## Phase 2
 
-![center invert hue-rotate:125deg width:900px](./black-box.PNG)
+![center invert hue-rotate:125deg width:900px](./black-box.svg)
 
 --- 
 ## The full reduction for a small source instance
 
-![center invert hue-rotate:125deg width:900px](./full-reduction.PNG)
+![center invert hue-rotate:125deg width:900px](./full-reduction.svg)
 
 ---
 
@@ -404,8 +408,7 @@ For width $k$, a parent-child cut has at most $k^2$ ports (on simple graphs).
 
   ### Theorem 
 
-  Undirected Edge Geography on simple graphs, given together with a
-  rooted tree partition of width $k$, is solvable in XP time  parameterized by $k$.
+  Undirected Edge Geography $\in \text{XP}$ when parameterized by tree-partition width.
 
 </div>
 
@@ -542,8 +545,3 @@ bounded interfaces<br><br>
 Is Edge Geography in XP parameterized by pathwidth alone? <br>
 Is Edge Geography XALP-hard when parameterized by treepartition width?
 </div>
-
---- 
-## Thanks for listening! 
-
-Questions welcome!
