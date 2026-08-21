@@ -210,7 +210,7 @@ What if we allow $d$ to be unbounded?
 
 ---
 
-![center invert width:600px](./crossings.svg)
+![center invert width:1000px](./thingy.svg)
 
 ---
 
