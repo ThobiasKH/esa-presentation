@@ -1,0 +1,35 @@
+% !TeX root = poster.tex
+% ==================== THE POSTER'S READING ORDER ====================
+% Reorder these rows, change column fractions, or swap input files here.
+% Text belongs in content/. Figure definitions belong in figures/.
+
+\PosterHeader
+\PosterGap
+
+% 1. A short introduction beside the main game illustration.
+\PosterColumns{0.46}{%
+  \input{content/game}%
+}{%
+  \input{figures/game}%
+}
+\PosterGap
+
+% 2. Main results span the poster width.
+\input{content/results}
+\PosterGap
+
+% 3. Two independently editable proof sketches.
+\PosterColumns{0.5}{%
+  \input{content/hardness}%
+}{%
+  \input{content/algorithm}%
+}
+\PosterGap
+
+% 4. A discussion prompt, then the paper links at the bottom.
+\input{content/outlook}
+\PosterSpace{4}
+\input{content/demo}
+\vfill
+\PosterGap
+\input{content/footer}

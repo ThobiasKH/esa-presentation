@@ -1,0 +1,23 @@
+% !TeX root = ../poster.tex
+\PosterHeading{04}{Why tree partitions help}
+
+Partition the vertices into bags arranged in a tree. Edges stay inside
+a bag or join adjacent bags. Each bag has at most $k$ vertices.
+\PosterPara
+On simple graphs, a parent--child cut has at most $k^2$ edges:
+the \textbf{ports} through which play crosses the boundary.
+\PosterSpace{6}
+
+\input{figures/algorithm}
+\PosterSpace{6}
+
+\textbf{Summarize.} An interface type records entry and return behavior,
+the player to move, and the remaining type after an excursion.
+\PosterPara
+\textbf{Count.} Children of the same type are interchangeable.
+Store their multiplicities and process the bags bottom-up.
+\PosterPara
+{\PosterSmallFont\color{PosterMuted}
+  For fixed $k$, the type universe is finite. The compressed local games
+  yield a total running time of $n^{f(k)}$.
+  \par}

@@ -1,0 +1,43 @@
+% !TeX root = poster.tex
+% ==================== SETTINGS YOU WILL PROBABLY CHANGE ====================
+% Set A0, A1 or A2. All are portrait. Typography and spacing scale together.
+% \providecommand lets the optional size-specific entry points override this.
+\providecommand{\PosterPaper}{A1}
+
+% Sizes below are expressed for A1. They scale with \PosterPaper.
+\newcommand{\PosterMarginMM}{22}
+\newcommand{\PosterGutterMM}{12}
+\newcommand{\PosterSectionGapMM}{11}
+\newcommand{\PosterParagraphGapMM}{4}
+
+\newcommand{\PosterTitlePT}{70}
+\newcommand{\PosterSubtitlePT}{31}
+\newcommand{\PosterHeadingPT}{29}
+\newcommand{\PosterBodyPT}{24}
+\newcommand{\PosterBodyLeadingPT}{32}
+\newcommand{\PosterSmallPT}{18}
+\newcommand{\PosterSmallLeadingPT}{24}
+
+% Figure panel heights, also measured in A1 millimetres.
+\newcommand{\GameFigureHeightMM}{94}
+\newcommand{\HardnessFigureHeightMM}{93}
+\newcommand{\AlgorithmFigureHeightMM}{93}
+% Physical QR size at A1; it scales with the selected paper size.
+\newcommand{\PosterQRSizeMM}{50}
+
+% Placeholder controls. Setting these to false leaves the reserved space blank.
+\newif\ifPosterShowFigurePlaceholders
+\PosterShowFigurePlaceholderstrue
+\newif\ifPosterShowLogoPlaceholder
+\PosterShowLogoPlaceholdertrue
+
+% Add a logo at this path later; the header will pick it up automatically.
+\newcommand{\PosterLogoFile}{assets/hvl-logo.pdf}
+
+% Restrained colour palette. These are ordinary HTML hex colours, without #.
+\newcommand{\PosterInkHex}{172F41}
+\newcommand{\PosterMutedHex}{536878}
+\newcommand{\PosterAccentHex}{087F83}
+\newcommand{\PosterHardnessHex}{AC5145}
+\newcommand{\PosterLineHex}{D6E0E5}
+\newcommand{\PosterFigureHex}{FFFFFF}

@@ -1,0 +1,13 @@
+% !TeX program = pdflatex
+% Main entry point. Compile from this directory: latexmk -pdf poster.tex
+\documentclass[12pt]{article}
+
+\input{config}
+\input{style}
+\input{content/metadata}
+
+\begin{document}
+  \PosterBodyFont
+  \color{PosterInk}\sffamily
+  \input{layout}
+\end{document}

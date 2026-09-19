@@ -1,0 +1,166 @@
+% !TeX root = poster.tex
+% ==================== PACKAGES, PAGE GEOMETRY, REUSABLE COMPONENTS ====================
+% Standard TeX fonts: no fontspec, system-font lookup, or external theme files.
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+
+% \PosterUnit and \PosterPoint allow one layout to scale between A-series sizes.
+\newlength{\PosterUnit}
+\newlength{\PosterPoint}
+\newlength{\PosterPageWidth}
+\newlength{\PosterPageHeight}
+\newif\ifPosterKnownPaper
+\PosterKnownPaperfalse
+\ifdefstring{\PosterPaper}{A0}{%
+  \setlength{\PosterPageWidth}{841mm}
+  \setlength{\PosterPageHeight}{1189mm}
+  \setlength{\PosterUnit}{1.414214mm}
+  \setlength{\PosterPoint}{1.414214pt}
+  \PosterKnownPapertrue}{}
+\ifdefstring{\PosterPaper}{A1}{%
+  \setlength{\PosterPageWidth}{594mm}
+  \setlength{\PosterPageHeight}{841mm}
+  \setlength{\PosterUnit}{1mm}
+  \setlength{\PosterPoint}{1pt}
+  \PosterKnownPapertrue}{}
+\ifdefstring{\PosterPaper}{A2}{%
+  \setlength{\PosterPageWidth}{420mm}
+  \setlength{\PosterPageHeight}{594mm}
+  \setlength{\PosterUnit}{0.707107mm}
+  \setlength{\PosterPoint}{0.707107pt}
+  \PosterKnownPapertrue}{}
+\ifPosterKnownPaper\else
+  \PackageError{portrait-poster}{Unknown paper size \PosterPaper}{Use A0, A1 or A2 in config.tex.}
+\fi
+\newlength{\PosterMargin}
+\newlength{\PosterGutter}
+\setlength{\PosterMargin}{\PosterMarginMM\PosterUnit}
+\setlength{\PosterGutter}{\PosterGutterMM\PosterUnit}
+\usepackage[paperwidth=\PosterPageWidth,paperheight=\PosterPageHeight,
+  margin=\PosterMargin]{geometry}
+
+\definecolor{PosterInk}{HTML}{\PosterInkHex}
+\definecolor{PosterMuted}{HTML}{\PosterMutedHex}
+\definecolor{PosterAccent}{HTML}{\PosterAccentHex}
+\definecolor{PosterHardness}{HTML}{\PosterHardnessHex}
+\definecolor{PosterLine}{HTML}{\PosterLineHex}
+\definecolor{PosterFigure}{HTML}{\PosterFigureHex}
+\hypersetup{colorlinks=true,urlcolor=PosterAccent}
+\pagestyle{empty}
+\renewcommand{\familydefault}{\sfdefault}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\emergencystretch}{2em}
+
+\newcommand{\PosterFont}[2]{\fontsize{#1\PosterPoint}{#2\PosterPoint}\selectfont}
+\newcommand{\PosterBodyFont}{\PosterFont{\PosterBodyPT}{\PosterBodyLeadingPT}}
+\newcommand{\PosterSmallFont}{\PosterFont{\PosterSmallPT}{\PosterSmallLeadingPT}}
+\newcommand{\PosterLabelFont}{\PosterFont{16}{21}\bfseries}
+\newcommand{\PosterSpace}[1]{\par\vspace{#1\PosterUnit}}
+\newcommand{\PosterPara}{\PosterSpace{\PosterParagraphGapMM}}
+\newcommand{\PosterGap}{\PosterSpace{\PosterSectionGapMM}}
+
+% A numbered heading; the optional colour defaults to teal.
+\newcommand{\PosterHeading}[3][PosterAccent]{%
+  {\PosterFont{\PosterHeadingPT}{36}\bfseries
+    {\color{#1}#2}\hspace{3\PosterUnit}#3\par}%
+  \PosterSpace{2}%
+  {\color{#1}\rule{\linewidth}{0.55\PosterUnit}\par}%
+  \PosterSpace{5}}
+
+% Flexible two-column row. Argument 1 is the left fraction AFTER the gutter.
+% Both columns use natural height; the next row follows the taller column.
+% Example: \PosterColumns{0.5}{left content}{right content}
+\newlength{\PosterRowWidth}
+\newlength{\PosterLeftWidth}
+\newlength{\PosterRightWidth}
+\newcommand{\PosterColumns}[3]{%
+  \par\begingroup
+  \setlength{\PosterRowWidth}{\dimexpr\linewidth-\PosterGutter\relax}%
+  \setlength{\PosterLeftWidth}{#1\PosterRowWidth}%
+  \setlength{\PosterRightWidth}{\dimexpr\PosterRowWidth-\PosterLeftWidth\relax}%
+  \noindent
+  \begin{minipage}[t]{\PosterLeftWidth}\vspace{0pt}\raggedright #2\par\end{minipage}%
+  \hspace{\PosterGutter}%
+  \begin{minipage}[t]{\PosterRightWidth}\vspace{0pt}\raggedright #3\par\end{minipage}%
+  \par\endgroup}
+
+% A result card with parameter, classification and one short explanation.
+\newcommand{\PosterResult}[4]{%
+  \begin{tcolorbox}[colback=#1!7!white,colframe=#1!7!white,boxrule=0pt,
+    arc=1.5\PosterUnit,left=7\PosterUnit,right=7\PosterUnit,
+    top=6\PosterUnit,bottom=6\PosterUnit,boxsep=0pt,
+    before skip=0pt,after skip=0pt,height=78\PosterUnit]
+    {\PosterLabelFont\color{#1}#2\par}\PosterSpace{3}
+    {\PosterFont{39}{46}\bfseries\color{#1}#3\par}\PosterSpace{3}
+    {\PosterFont{21}{28}#4\par}
+  \end{tcolorbox}}
+
+% Loads a real figure if the file exists, otherwise reserves the same height.
+% Arguments: filename, A1 height in mm (number only), placeholder label.
+\newcommand{\PosterFigure}[3]{%
+  \begin{tcolorbox}[colback=PosterFigure,colframe=PosterLine,
+    boxrule=0.45\PosterPoint,arc=1.5\PosterUnit,
+    left=4\PosterUnit,right=4\PosterUnit,
+    top=4\PosterUnit,bottom=4\PosterUnit,boxsep=0pt,
+    before skip=0pt,after skip=0pt,height=#2\PosterUnit,
+    valign=center,halign=center]
+    \IfFileExists{#1}{%
+      \includegraphics[width=\linewidth,
+        height=\dimexpr#2\PosterUnit-9\PosterUnit\relax,
+        keepaspectratio]{#1}%
+    }{%
+      \ifPosterShowFigurePlaceholders
+        {\PosterLabelFont\color{PosterMuted}FIGURE SPACE\par}\PosterSpace{3}
+        {\PosterSmallFont\color{PosterMuted}#3\par}%
+      \else\mbox{}\fi
+    }
+  \end{tcolorbox}}
+
+% The logo slot is 60 x 24 A1 mm. No unofficial logo is supplied.
+\newcommand{\PosterLogo}{%
+  \begin{minipage}[c][24\PosterUnit][c]{60\PosterUnit}
+    \centering
+    \IfFileExists{\PosterLogoFile}{%
+      \includegraphics[width=\linewidth,height=24\PosterUnit,
+        keepaspectratio]{\PosterLogoFile}%
+    }{%
+      \ifPosterShowLogoPlaceholder
+        {\PosterLabelFont\color{PosterMuted}HVL LOGO\par}
+        {\PosterFont{13}{18}\color{PosterMuted}reserved space\par}%
+      \else\mbox{}\fi
+    }
+  \end{minipage}}
+
+\newcommand{\PosterHeader}{%
+  \noindent\begin{minipage}[c]{\dimexpr\linewidth-68\PosterUnit\relax}
+    {\PosterLabelFont\color{PosterAccent}\PosterKicker\par}
+    \PosterSpace{3}
+    {\PosterSmallFont\color{PosterMuted}\PosterVenue\par}
+  \end{minipage}\hfill\PosterLogo\par
+  \PosterSpace{7}
+  {\PosterFont{\PosterTitlePT}{78}\bfseries\PosterTitle\par}
+  \PosterSpace{3}
+  {\PosterFont{\PosterSubtitlePT}{39}\bfseries\PosterSubtitle\par}
+  \PosterSpace{7}
+  {\PosterFont{22}{29}\PosterAuthors\par}
+  \PosterSpace{2}
+  {\PosterSmallFont\color{PosterMuted}\PosterAffiliation\par}
+  \PosterSpace{7}
+  {\color{PosterInk}\rule{\linewidth}{0.8\PosterUnit}\par}}
+
+% Warn when a workshop edit spills into a second page.
+\newcounter{PosterPageCount}
+\AddToHook{shipout/before}{\stepcounter{PosterPageCount}}
+\AddToHook{enddocument/afterlastpage}{%
+  \ifnum\value{PosterPageCount}>1
+    \PackageWarningNoLine{portrait-poster}{Poster occupies more than one page.
+      Shorten content or reduce figure heights in config.tex}%
+  \fi}

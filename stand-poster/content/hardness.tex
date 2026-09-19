@@ -1,0 +1,23 @@
+% !TeX root = ../poster.tex
+\PosterHeading[PosterHardness]{03}{Why pathwidth is hard}
+
+\textbf{Source problem.} In \emph{Chosen Maximum Outdegree}, orient
+weighted edges so that each vertex respects its outgoing-weight bound.
+\PosterPara
+\textbf{Choose.} Player 1 encodes an orientation by choosing a side of
+each edge gadget.
+\PosterPara
+\textbf{Challenge.} Player 2 tests whether a vertex exceeds its bound.
+A feasible orientation exists exactly when Player 1 can force a win.
+\PosterSpace{6}
+
+\input{figures/hardness}
+\PosterSpace{6}
+
+The construction bounds the new pathwidth by a function of the source
+width. A constant-size gadget then transfers the result to undirected graphs.
+\PosterPara
+{\PosterSmallFont\color{PosterMuted}
+  \textbf{Pathwidth:} overlapping vertex bags arranged in a path;
+  width $=$ largest bag size minus one.
+  \par}
