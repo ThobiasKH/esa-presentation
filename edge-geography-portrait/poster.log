@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.23)  20 SEP 2026 01:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12) (preloaded format=pdflatex 2026.8.23)  20 SEP 2026 14:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -560,15 +560,15 @@ Package hyperref Info: Link coloring ON on input line 9.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(62.59573pt, 1564.90222pt, 62.59573pt)
-* v-part:(T,H,B)=(62.59573pt, 2267.6853pt, 62.59573pt)
-* \paperwidth=1690.09369pt
-* \paperheight=2392.87677pt
-* \textwidth=1564.90222pt
-* \textheight=2267.6853pt
-* \oddsidemargin=-9.67426pt
-* \evensidemargin=-9.67426pt
-* \topmargin=-46.67426pt
+* h-part:(L,W,R)=(88.52402pt, 2215.82874pt, 88.52402pt)
+* v-part:(T,H,B)=(88.52402pt, 3205.98463pt, 88.52402pt)
+* \paperwidth=2392.87677pt
+* \paperheight=3383.03267pt
+* \textwidth=2215.82874pt
+* \textheight=3205.98463pt
+* \oddsidemargin=16.25403pt
+* \evensidemargin=16.25403pt
+* \topmargin=-20.74597pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=12.0pt
@@ -587,7 +587,7 @@ Package hyperref Info: Link coloring ON on input line 9.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (layout.tex
-LaTeX Font Info:    Calculating math sizes for size <24> on input line 6.
+LaTeX Font Info:    Calculating math sizes for size <33.94116> on input line 6.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 6.
  (C:\Users\Thobias\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -605,11 +605,11 @@ LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 6
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <24> on input line 6.
+(Font)              <33.94116> on input line 6.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <16.79993> on input line 6.
+(Font)              <23.7587> on input line 6.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 6.
+(Font)              <16.97058> on input line 6.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 6.
  (C:\Users\Thobias\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -624,59 +624,63 @@ pdfTeX warning: pdflatex (file ./assets/hvl-logo.pdf): PDF inclusion: found PDF 
 File: assets/hvl-logo.pdf Graphic file (type pdf)
 <use assets/hvl-logo.pdf>
 Package pdftex.def Info: assets/hvl-logo.pdf  used on input line 6.
-(pdftex.def)             Requested size: 170.7057pt x 44.38345pt.
+(pdftex.def)             Requested size: 321.9088pt x 83.69624pt.
+
+Overfull \hbox (48.28583pt too wide) in paragraph at lines 6--6
+$[]$ $[]$ 
+ []
+
 LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 6.
 (C:\Users\Thobias\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmss.fd
 File: ts1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (content/game.tex) (figures/game.tex
-<assets/game.pdf, id=7, 234.12167pt x 74.30762pt>
+<assets/game.pdf, id=7, 301.78145pt x 86.9147pt>
 File: assets/game.pdf Graphic file (type pdf)
 <use assets/game.pdf>
 Package pdftex.def Info: assets/game.pdf  used on input line 5.
-(pdftex.def)             Requested size: 762.09744pt x 241.88121pt.
+(pdftex.def)             Requested size: 1137.10669pt x 327.49287pt.
 ) (content/results.tex
-<assets/pathwidth.pdf, id=8, 200.25816pt x 104.51648pt>
+LaTeX Font Info:    Calculating math sizes for size <29.69852> on input line 26.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <29.69852> on input line 26.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <20.78886> on input line 26.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.84926> on input line 26.
+<assets/pathwidth.pdf, id=8, 149.75949pt x 89.82458pt>
 File: assets/pathwidth.pdf Graphic file (type pdf)
 <use assets/pathwidth.pdf>
-Package pdftex.def Info: assets/pathwidth.pdf  used on input line 20.
-(pdftex.def)             Requested size: 449.84941pt x 234.7803pt.
-LaTeX Font Info:    Calculating math sizes for size <21> on input line 20.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <21> on input line 20.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.69994> on input line 20.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.5> on input line 20.
-<assets/tree-partition.pdf, id=9, 154.70197pt x 98.56725pt>
+Package pdftex.def Info: assets/pathwidth.pdf  used on input line 26.
+(pdftex.def)             Requested size: 637.04521pt x 382.09473pt.
+<assets/tree-partition.pdf, id=9, 133.7577pt x 82.6568pt>
 File: assets/tree-partition.pdf Graphic file (type pdf)
 <use assets/tree-partition.pdf>
-Package pdftex.def Info: assets/tree-partition.pdf  used on input line 20.
-(pdftex.def)             Requested size: 449.87529pt x 286.63481pt.
-LaTeX Font Info:    Calculating math sizes for size <18> on input line 24.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <18> on input line 24.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12.59995> on input line 24.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 24.
+Package pdftex.def Info: assets/tree-partition.pdf  used on input line 26.
+(pdftex.def)             Requested size: 637.0415pt x 393.6656pt.
 ) (content/hardness.tex
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <24> not available
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <33.94116> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 5.
  (figures/hardness.tex
-<assets/hardness.pdf, id=10, 505.2472pt x 214.97714pt>
+<assets/hardness.pdf, id=10, 500.4289pt x 154.99306pt>
 File: assets/hardness.pdf Graphic file (type pdf)
 <use assets/hardness.pdf>
 Package pdftex.def Info: assets/hardness.pdf  used on input line 4.
-(pdftex.def)             Requested size: 561.72531pt x 239.00795pt.
-)) (content/algorithm.tex (figures/algorithm.tex)) (content/outlook.tex) (content/demo.tex
-<assets/game-qr.pdf, id=12, 147.95435pt x 147.95435pt>
+(pdftex.def)             Requested size: 1050.41243pt x 325.33417pt.
+)) (content/algorithm.tex (figures/algorithm.tex
+<assets/algorithm.pdf, id=11, 267.36046pt x 98.07741pt>
+File: assets/algorithm.pdf Graphic file (type pdf)
+<use assets/algorithm.pdf>
+Package pdftex.def Info: assets/algorithm.pdf  used on input line 4.
+(pdftex.def)             Requested size: 921.52965pt x 338.05014pt.
+)) (content/outlook.tex) (content/demo.tex
+<assets/game-qr.pdf, id=13, 147.95435pt x 147.95435pt>
 File: assets/game-qr.pdf Graphic file (type pdf)
 <use assets/game-qr.pdf>
 Package pdftex.def Info: assets/game-qr.pdf  used on input line 3.
-(pdftex.def)             Requested size: 142.26257pt x 142.26257pt.
+(pdftex.def)             Requested size: 201.1904pt x 201.1904pt.
 ) (content/footer.tex)) [1
 
-{C:/Users/Thobias/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc} <./assets/hvl-logo.pdf> <./assets/game.pdf> <./assets/pathwidth.pdf> <./assets/tree-partition.pdf> <./assets/hardness.pdf> <./assets/game-qr.pdf>] (poster.aux)
+{C:/Users/Thobias/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc} <./assets/hvl-logo.pdf> <./assets/game.pdf> <./assets/pathwidth.pdf> <./assets/tree-partition.pdf> <./assets/hardness.pdf> <./assets/algorithm.pdf> <./assets/game-qr.pdf>] (poster.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -685,17 +689,17 @@ Package rerunfilecheck Info: File `poster.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 23325 strings out of 467870
- 451668 string characters out of 5417387
- 838149 words of memory out of 5000000
- 51796 multiletter control sequences out of 15000+600000
- 721233 words of font info for 109 fonts, out of 8000000 for 9000
+ 23302 strings out of 467870
+ 451674 string characters out of 5417387
+ 839151 words of memory out of 5000000
+ 51778 multiletter control sequences out of 15000+600000
+ 709204 words of font info for 94 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,10n,97p,486b,729s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso17.pfb>
-Output written on poster.pdf (1 page, 430795 bytes).
+<C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi12.pfb><C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/Users/Thobias/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso17.pfb>
+Output written on poster.pdf (1 page, 455175 bytes).
 PDF statistics:
- 189 PDF objects out of 1000 (max. 8388607)
+ 188 PDF objects out of 1000 (max. 8388607)
  2 named destinations out of 1000 (max. 500000)
- 43 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 48 words of extra memory for PDF output out of 10000 (max. 10000000)
 
